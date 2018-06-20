@@ -1,0 +1,82 @@
+.header {
+  max-width: 100%;
+  background-color: $accent;
+  border-bottom: 2px solid #71973c;
+  padding: 11px 0 15px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    width: 435px;
+    background: #73993d url(../img/icons/search.png) no-repeat 11px 11px;
+    border-radius: 3px;
+    padding: 10px 0 6px 39px;
+    border: none;
+    color: #fff;
+    font-size: .9375rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: #ffffff;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+  }
+
+  &__icon {
+    cursor: pointer;
+    margin-right: 21px;
+    width: 26px;
+    height: 26px;
+
+    &--chat {
+      @include sprite($chat);
+    }
+
+    &--notification {
+      @include sprite($notifications);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__user {
+    cursor: pointer;
+    margin-right: 12px;
+    padding-top: 7px;
+
+    &-icon {
+      display: inline-block;
+      vertical-align: middle;
+      border-radius: 4px;
+      width: 32px;
+      height: 32px;
+      margin-right: 6px;
+      overflow: hidden;
+    }
+
+    &-thumbnail {
+      max-width: 100%;
+      height: auto;
+    }
+
+    &-text {
+      display: inline-block;
+      vertical-align: middle;
+      color: #ffffff;
+    }
+  }
+}

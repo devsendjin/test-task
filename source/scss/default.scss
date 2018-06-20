@@ -1,0 +1,23 @@
+html,
+body {
+  font-size: $default-font-size;
+}
+
+body {
+  min-width: 320px;
+  line-height: normal;
+  font-family: $ff-proxr;
+  color: $text;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::placeholder {
+  color: #666;
+}
+
+.container {
+  max-width: 970px;
+  margin: 0 auto;
+  padding: 0 15px;
+}

@@ -1,0 +1,93 @@
+/*------------------------------------------ VARIABLES ------------------------------------------*/
+/*---------------------- default ----------------------*/
+$text: #000000;
+$default-bg: #fdaf07;
+$default-font-size: 16px;
+
+/*------------------ fonts ------------------*/
+$ff-proxl: 'Proxima Nova Light', Arial, sans-serif;
+$ff-proxr: 'Proxima Nova Regular', Arial, sans-serif;
+$ff-proxb: 'Proxima Nova Semibold', Arial, sans-serif;
+
+/*------------------ colors ------------------*/
+$accent: #87b448;
+$title: #1c2534;
+/*------------------------------------------ MIXINS ------------------------------------------*/
+
+/*------------------ MEDIA QUERIES ------------------*/
+@mixin desktop {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+@mixin tablets {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin phones {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin link($color: #fff) {
+  color: $color;
+  text-decoration: none;
+}
+
+/*------------------ FONT ------------------*/
+@mixin font($font, $size, $color: false) {
+  @if $font != false {
+    font-family: $font;
+  }
+  @if $size != false {
+    font-size: $size;
+  }
+  @if $color != false {
+    color: $color;
+  }
+}
+
+/*------------------ CENTERING ------------------*/
+@mixin center($axis: 'xy') {
+  position: absolute;
+
+  @if $axis == 'xy' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if $axis == 'y' {
+    top: 50%;
+    transform: translateY(-50%);
+  } @else if $axis == 'x' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/*------------------ FONT-FACE ------------------*/
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+    font-display: optional;
+
+    src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.woff2') format('woff2'), url('#{$file-path}.ttf') format('truetype');
+  }
+}
+/*---------------------------------------------------- FUNCTIONS ----------------------------------------------------*/
+/*------------------ PX to REM ------------------*/
+@function rem($size) {
+  $remSize: $size / $default-font-size;
+  @return #{$remSize}rem;
+}
